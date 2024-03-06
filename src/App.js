@@ -1,25 +1,22 @@
 import './App.css';
-import HelloWorld from './components/HelloWorld'
-import SayMyName from './components/SayMyName';
-import Pessoa from './components/Pessoa';
-import Frase from './components/Frase';
-import List from './components/List';
-
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from "./pages/Home"
+import Contato from "./pages/Contato"
+import Empresa from "./pages/Empresa"
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Testado Css </h1>
-      <Frase/>
-      <HelloWorld/>
-      <SayMyName nome="Larissa"/>
-      <Pessoa nome="Larissa" 
-      idade="17" 
-      profissao="Programadora"/>
-      <List/>
-
-    </div>
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contato" element={<Contato />} />
+        <Route path="/empresa" element={<Empresa />} />
+      </Routes>
+      <Footer/>
+    </Router>
   );
 }
-
-export default App;
+export default App
